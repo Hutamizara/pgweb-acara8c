@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Input Pariwisata</title>
+</head>
+<body>
+    <h2>Form Input Data Pariwisata</h2>
+
+    <form action="input.php" onsubmit="return validateForm()" method="post">
+        <label for="nama">Nama Destinasi:</label><br>
+        <input type="text" id="nama" name="nama_destinasi_pariwisata" required><br><br>
+
+        <label for="longitude">Longitude:</label><br>
+        <input type="number" step="any" id="longitude" name="longitude" required><br><br>
+
+        <label for="latitude">Latitude:</label><br>
+        <input type="number" step="any" id="latitude" name="latitude" required><br><br>
+
+        <label for="jenis">Jenis Wisata:</label><br>
+        <input type="text" id="jenis" name="jenis_wisata" required><br><br>
+
+        <label for="fasilitas">Fasilitas:</label><br>
+        <input type="text" id="fasilitas" name="fasilitas"><br><br>
+
+        <label for="pengunjung">Jumlah Pengunjung Tahun 2025:</label><br>
+        <input type="number" min="0" step="1" id="pengunjung" name="jlh_pengunjung_thn_2025" required><br><br>
+
+        <label for="sumber">Sumber Data:</label><br>
+        <input type="text" id="sumber" name="sumber_data"><br><br>
+
+        <label for="desa">Desa/Kelurahan:</label><br>
+        <input type="text" id="desa" name="desa_kelurahan"><br><br>
+
+        <label for="kecamatan">Kecamatan:</label><br>
+        <input type="text" id="kecamatan" name="kecamatan"><br><br>
+
+        <label for="kabupaten">Kabupaten:</label><br>
+        <input type="text" id="kabupaten" name="kabupaten"><br><br>
+
+        <label for="provinsi">Provinsi:</label><br>
+        <input type="text" id="provinsi" name="provinsi"><br><br>
+
+        <input type="submit" value="Simpan Data">
+    </form>
+
+    <br>
+    <a href="../index.php">Kembali ke Tabel</a>
+
+    <p id="informasi"></p>
+
+    <script>
+        function validateForm() {
+            let pengunjung = document.getElementById("pengunjung").value;
+            let text = "";
+
+            if (isNaN(pengunjung) || pengunjung < 0) {
+                text = "Jumlah pengunjung harus berupa angka dan tidak boleh negatif.";
+                document.getElementById("informasi").innerHTML = text;
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
